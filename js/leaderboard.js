@@ -25,7 +25,7 @@ function loadLeaderboard() {
   const table = document.createElement("table");
 
   const headerRow = document.createElement("tr");
-  ["Posição", "Jogador", "Pontuação"].forEach((text) => {
+  ["Position", "Player", "Score"].forEach((text) => {
     const th = document.createElement("th");
     th.textContent = text;
     headerRow.appendChild(th);
