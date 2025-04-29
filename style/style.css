@@ -1,7 +1,6 @@
 body {
     font-family: "Dancing Script", cursive;
     background-color: #f4f4f4;
-    text-align: center;
     margin: 0;
     padding: 0;
     color: #333;
@@ -11,13 +10,16 @@ body {
     max-width: 700px;
     margin: 60px auto;
     padding: 0 20px;
+    text-align: center;
 }
 
+/* Título principal */
 h1 {
     font-size: 50px;
     margin-bottom: 20px;
 }
 
+/* Estilo das caixas de perguntas */
 .question {
     margin-bottom: 30px;
     padding: 20px;
@@ -27,6 +29,7 @@ h1 {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+/* Opções de resposta no quiz */
 .options {
     display: flex;
     flex-direction: column;
@@ -42,6 +45,7 @@ h1 {
     cursor: pointer;
     background-color: #eee;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .option-button:hover {
@@ -63,6 +67,7 @@ h1 {
     opacity: 0.6;
 }
 
+/* Botões genéricos */
 .botao-verde {
     display: inline-block;
     background-color: #28a745;
@@ -79,8 +84,45 @@ h1 {
     background-color: #218838;
 }
 
+/* Pontuação */
 #scoreDisplay {
     margin-top: 20px;
     font-size: 24px;
     font-weight: bold;
+}
+
+/* Estilo da tela de login */
+.login-box {
+    max-width: 400px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin: 100px auto;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+    background-color: #0056b3;
 }

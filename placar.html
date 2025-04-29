@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Placar de Pontuação | Feira de Ciências</title>
+  <link rel="stylesheet" href="style/style.css" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #28a745;
+      color: white;
+      font-size: 20px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .mensagem {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Placar de Pontuação</h1>
+    <div id="leaderboard-container">
+      <p class="mensagem">Carregando placar...</p>
+    </div>
+    <a href="index.html" class="botao-verde">Ir para o Início</a>
+  </div>
+  <script src="js/leaderboard.js"></script>
+</body>
+</html>

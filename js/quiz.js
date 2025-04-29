@@ -1,3 +1,4 @@
+// Função para embaralhar as perguntas e alternativas
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -13,114 +14,215 @@ const quizContainer = document.getElementById("quiz-container");
 const calculateButton = document.getElementById("calculateScore");
 const scoreDisplay = document.getElementById("scoreDisplay");
 
-// Array original de perguntas
+// Perguntas do quiz (perguntas em português, respostas todas em inglês)
 const questions = [
   {
+    question: "Quem foi o responsável pela independência dos Estados Unidos?",
+    answers: [
+      "George Washington",
+      "Thomas Jefferson",
+      "Abraham Lincoln",
+      "Benjamin Franklin"
+    ],
+    correct: 0
+  },
+  {
+    question: "Em que ano aconteceu a queda do Muro de Berlim?",
+    answers: [
+      "1989",
+      "1991",
+      "1987",
+      "1990"
+    ],
+    correct: 0
+  },
+  {
+    question: "Qual foi a principal causa da Primeira Guerra Mundial?",
+    answers: [
+      "Imperialism",
+      "Nationalism",
+      "Assassination of Archduke Franz Ferdinand",
+      "Industrial Revolution"
+    ],
+    correct: 2
+  },
+  {
+    question: "Quem foi o líder da Revolução Francesa?",
+    answers: [
+      "Napoleon Bonaparte",
+      "Maximilien Robespierre",
+      "Louis XVI",
+      "Jean-Paul Marat"
+    ],
+    correct: 1
+  },
+  {
+    question: "Qual foi a principal consequência da Revolução Industrial?",
+    answers: [
+      "Increase in agriculture",
+      "Growth of cities and industry",
+      "End of colonialism",
+      "Advances in medicine"
+    ],
+    correct: 1
+  },
+  {
+    question: "Em que ano ocorreu a Revolução Russa?",
+    answers: [
+      "1917",
+      "1905",
+      "1920",
+      "1914"
+    ],
+    correct: 0
+  },
+  {
+    question: "Quem foi o presidente do Brasil durante a ditadura militar?",
+    answers: [
+      "Getúlio Vargas",
+      "Juscelino Kubitschek",
+      "Costa e Silva",
+      "Tancredo Neves"
+    ],
+    correct: 2
+  },
+  {
+    question: "Qual evento iniciou a Segunda Guerra Mundial?",
+    answers: [
+      "Assassination of Archduke Franz Ferdinand",
+      "Invasion of Poland by Germany",
+      "Attack on Pearl Harbor",
+      "Invasion of France by Germany"
+    ],
+    correct: 1
+  },
+  {
+    question: "Quem foi o líder do regime nazista na Alemanha?",
+    answers: [
+      "Joseph Stalin",
+      "Benito Mussolini",
+      "Adolf Hitler",
+      "Franz von Papen"
+    ],
+    correct: 2
+  },
+  {
+    question: "Em que ano foi assinada a Carta Magna na Inglaterra?",
+    answers: [
+      "1215",
+      "1492",
+      "1776",
+      "1066"
+    ],
+    correct: 0
+  },
+  {
+    question: "Quem foi o imperador romano que legalizou o cristianismo?",
+    answers: [
+      "Julius Caesar",
+      "Nero",
+      "Constantine",
+      "Augustus"
+    ],
+    correct: 2
+  },
+  {
+    question: "Em que ano ocorreu a Primeira Guerra Mundial?",
+    answers: [
+      "1912",
+      "1914",
+      "1920",
+      "1939"
+    ],
+    correct: 1
+  },
+  {
+    question: "Qual foi o nome da embarcação que afundou em 1912?",
+    answers: [
+      "Titanic",
+      "Britannic",
+      "Lusitania",
+      "Olympic"
+    ],
+    correct: 0
+  },
+  {
+    question: "Quem foi o líder da Revolução Russa?",
+    answers: [
+      "Vladimir Lenin",
+      "Joseph Stalin",
+      "Nikita Khrushchev",
+      "Leon Trotsky"
+    ],
+    correct: 0
+  },
+  {
+    question: "Em que ano ocorreu o ataque a Pearl Harbor?",
+    answers: [
+      "1939",
+      "1941",
+      "1943",
+      "1945"
+    ],
+    correct: 1
+  },
+  {
+    question: "Quem foi o responsável pela unificação da Alemanha?",
+    answers: [
+      "Otto von Bismarck",
+      "Kaiser Wilhelm I",
+      "Adolf Hitler",
+      "Karl Marx"
+    ],
+    correct: 0
+  },
+  {
+    question: "Qual foi a principal causa da Guerra Civil Americana?",
+    answers: [
+      "Economic disputes",
+      "Abolition of slavery",
+      "Civil rights disagreements",
+      "Territorial issues"
+    ],
+    correct: 1
+  },
+  {
     question: "Quem foi o primeiro presidente dos Estados Unidos?",
-    answers: ["Thomas Jefferson", "George Washington", "Abraham Lincoln", "John Adams"],
+    answers: [
+      "Thomas Jefferson",
+      "George Washington",
+      "Abraham Lincoln",
+      "John Adams"
+    ],
     correct: 1
   },
   {
-    question: "Em que ano começou a Segunda Guerra Mundial?",
-    answers: ["1945", "1939", "1918", "1941"],
-    correct: 1
-  },
-  {
-    question: "Qual império construiu a Muralha da China?",
-    answers: ["Mongol Empire", "Chinese Empire", "Roman Empire", "Ottoman Empire"],
-    correct: 1
-  },
-  {
-    question: "Onde ocorreu a Revolução Francesa?",
-    answers: ["Spain", "Portugal", "France", "Germany"],
-    correct: 2
-  },
-  {
-    question: "Quem descobriu o Brasil em 1500?",
-    answers: ["Christopher Columbus", "Pedro Álvares Cabral", "Ferdinand Magellan", "Vasco da Gama"],
-    correct: 1
-  },
-  {
-    question: "Qual cidade foi destruída por uma erupção do vulcão Vesúvio?",
-    answers: ["Athens", "Pompeii", "Carthage", "Rome"],
-    correct: 1
-  },
-  {
-    question: "Qual era o nome da guerra entre o Norte e o Sul dos EUA?",
-    answers: ["Revolutionary War", "Civil War", "World War I", "Vietnam War"],
-    correct: 1
-  },
-  {
-    question: "Quem foi o líder da Alemanha durante a Segunda Guerra Mundial?",
-    answers: ["Winston Churchill", "Joseph Stalin", "Adolf Hitler", "Benito Mussolini"],
-    correct: 2
-  },
-  {
-    question: "Qual país usou pela primeira vez armas nucleares em guerra?",
-    answers: ["Russia", "United States", "Germany", "Japan"],
-    correct: 1
-  },
-  {
-    question: "Em que país nasceu Napoleão Bonaparte?",
-    answers: ["France", "Italy", "Germany", "Spain"],
+    question: "Qual evento marcou o fim da Idade Média?",
+    answers: [
+      "Fall of Constantinople",
+      "Discovery of America",
+      "French Revolution",
+      "Protestant Reformation"
+    ],
     correct: 0
   },
   {
-    question: "Quem foi o imperador romano assassinado em 44 a.C.?",
-    answers: ["Augustus", "Nero", "Caligula", "Julius Caesar"],
-    correct: 3
-  },
-  {
-    question: "O que foi o Renascimento?",
-    answers: ["Cultural movement", "Religious protest", "Economic collapse", "Political war"],
+    question: "Em que ano começou a Revolução Francesa?",
+    answers: [
+      "1789",
+      "1792",
+      "1795",
+      "1800"
+    ],
     correct: 0
-  },
-  {
-    question: "Em que ano caiu o Muro de Berlim?",
-    answers: ["1990", "1989", "1985", "1991"],
-    correct: 1
-  },
-  {
-    question: "Quem pintou a Última Ceia?",
-    answers: ["Leonardo da Vinci", "Michelangelo", "Raphael", "Donatello"],
-    correct: 0
-  },
-  {
-    question: "Quem foi o revolucionário argentino famoso em Cuba?",
-    answers: ["Fidel Castro", "Che Guevara", "Hugo Chávez", "Simón Bolívar"],
-    correct: 1
-  },
-  {
-    question: "Onde surgiu a democracia antiga?",
-    answers: ["Rome", "Egypt", "Babylon", "Greece"],
-    correct: 3
-  },
-  {
-    question: "Qual foi o navio famoso que afundou em 1912?",
-    answers: ["Lusitania", "Titanic", "Queen Mary", "Britannic"],
-    correct: 1
-  },
-  {
-    question: "Qual civilização construiu as pirâmides?",
-    answers: ["Mayans", "Romans", "Greeks", "Egyptians"],
-    correct: 3
-  },
-  {
-    question: "Qual país colonizou o Brasil?",
-    answers: ["Spain", "Portugal", "France", "Netherlands"],
-    correct: 1
-  },
-  {
-    question: "Quem foi Martin Luther King Jr.?",
-    answers: ["President", "Soldier", "Singer", "Civil rights leader"],
-    correct: 3
   }
 ];
 
 // Embaralha perguntas
 shuffle(questions);
 
-questions.forEach((q, index) => {
+// Função para exibir as perguntas no HTML
+function displayQuestion(q, index) {
   const questionDiv = document.createElement("div");
   questionDiv.classList.add("question");
 
@@ -135,7 +237,6 @@ questions.forEach((q, index) => {
   feedbackText.classList.add("feedback");
 
   // Embaralha alternativas e atualiza índice da correta
-  const originalAnswers = [...q.answers];
   const answerPairs = q.answers.map((ans, idx) => ({ text: ans, index: idx }));
   shuffle(answerPairs);
   const shuffledAnswers = answerPairs.map(a => a.text);
@@ -166,7 +267,7 @@ questions.forEach((q, index) => {
 
       const isCorrect = i === q.correct;
       const feedbackSymbol = isCorrect ? "✅" : "❌";
-      feedbackText.textContent = `Você escolheu: ${button.textContent} ${feedbackSymbol}`;
+      feedbackText.textContent = `You chose: ${button.textContent} ${feedbackSymbol}`;
       questionDiv.appendChild(feedbackText);
 
       if (isCorrect) {
@@ -186,10 +287,25 @@ questions.forEach((q, index) => {
 
   questionDiv.appendChild(optionsDiv);
   quizContainer.appendChild(questionDiv);
+}
+
+// Exibe todas as perguntas
+questions.forEach((q, index) => {
+  displayQuestion(q, index);
 });
 
+// Função para calcular e exibir a pontuação
 calculateButton.addEventListener("click", () => {
   scoreDisplay.textContent =
-    `Você marcou ${score} pontos de 200 possíveis!\n` +
-    `Você acertou ${rightAnswers} de 20 questões!`;
+    `You scored ${score} out of 200 points!\n` +
+    `You got ${rightAnswers} out of 20 questions right!`;
+
+  // Recupera o login do localStorage
+  const userLogin = localStorage.getItem("username");
+
+  // Salva a pontuação do usuário
+  const userScores = JSON.parse(localStorage.getItem("userScores")) || [];
+  userScores.push({ username: userLogin, score, rightAnswers });
+
+  localStorage.setItem("userScores", JSON.stringify(userScores));
 });
